@@ -1,5 +1,7 @@
 # Tensorflow Reimplementation of ResMLP
 
+[![Pytest](https://github.com/yeyinthtoon/tf2-resmlp/actions/workflows/pytest.yml/badge.svg)](https://github.com/yeyinthtoon/tf2-resmlp/actions/workflows/pytest.yml)
+[![Pylint](https://github.com/yeyinthtoon/tf2-resmlp/actions/workflows/pylint.yml/badge.svg)](https://github.com/yeyinthtoon/tf2-resmlp/actions/workflows/pylint.yml)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yeyinthtoon/tf2-resmlp/blob/main/examples/cifar10.ipynb)
 
 ## References
