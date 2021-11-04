@@ -1,0 +1,11 @@
+[tool.pylint.'MESSAGES CONTROL']
+disable= "R0902, R0913, W0201, C0103, R0914"
+
+[tool.pylint.format]
+max-line-length = 119
+
+[tool.black]
+line-length = 119
+
+[tool.mypy]
+ignore_missing_imports = true
