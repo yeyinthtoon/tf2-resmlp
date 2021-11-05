@@ -178,7 +178,7 @@ def PatchEmbed(
     embed_dims: int = 768,
     flatten: Optional[bool] = True,
     name: str = "patch_embedding",
-):
+) -> Type[tf.Tensor]:
     """Patch Embedding layer.
 
     Args:
@@ -190,7 +190,7 @@ def PatchEmbed(
         name (str, optional): Defaults to patch_embedding.
 
     Returns:
-        [type]: [description]
+        tf.Tensor: A tensor of rank 3+.
     """
     x = layers.Conv2D(
         filters=embed_dims,
