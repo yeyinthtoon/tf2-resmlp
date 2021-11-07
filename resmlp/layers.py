@@ -11,20 +11,20 @@ class DiagonalAffine(layers.Layer):
 
     Args:
         dims (int): [size of input feature]
-        alpha_initializer (Union[str, Type[tf.keras.initializers.Initializer]], optional):
-            Initializer for alpha vector.".
-        beta_initializer (Union[str, Type[tf.keras.initializers.Initializer]], optional):
+        alpha_initializer (Union[str, Type[tf.keras.initializers.Initializer], initializers.Initializer], optional):
+            Initializer for alpha vector. Defaults to "one".
+        beta_initializer (Union[str, Type[tf.keras.initializers.Initializer], initializers.Initializer], optional):
             Initializer for beta vector. Defaults to "zero".
         use_beta (bool, optional): Boolean, whether the layer uses a beta vector.
             Defaults to True.
-        alpha_regularizer (Union[str, Type[tf.keras.regularizers.Regularizer]], optional):
+        alpha_regularizer (Union[str, Type[tf.keras.regularizers.Regularizer], tf.keras.regularizers.Regularizer], optional):
             Regularizer for alpha vector.Defaults to None.
-        alpha_constraint (Union[str, Type[tf.keras.constraints.Constraint]], optional): Constraint for alpha vector.
-            Defaults to None.
-        beta_regularizer (Union[str, Type[tf.keras.regularizers.Regularizer]], optional): Regularizer for beta vector.
-            Defaults to None.
-        beta_constraint (Union[str, Type[tf.keras.constraints.Constraint]], optional):  Constraint for beta vector.
-            Defaults to None.
+        alpha_constraint (Union[str, Type[tf.keras.constraints.Constraint], tf.keras.constraints.Constraint], optional):
+            Constraint for alpha vector. Defaults to None.
+        beta_regularizer (Union[str, Type[tf.keras.regularizers.Regularizer], tf.keras.regularizers.Regularizer], optional):
+            Regularizer for beta vector. Defaults to None.
+        beta_constraint (Union[str, Type[tf.keras.constraints.Constraint], tf.keras.constraints.Constraint], optional):
+            Constraint for beta vector. Defaults to None.
 
     Raises:
         ValueError: if dims is less than or equal to zero.
@@ -33,13 +33,13 @@ class DiagonalAffine(layers.Layer):
     def __init__(
         self,
         dims: int,
-        alpha_initializer: Union[str, Type[initializers.Initializer]] = "ones",
-        beta_initializer: Union[str, Type[initializers.Initializer]] = "zero",
+        alpha_initializer: Union[str, Type[initializers.Initializer], initializers.Initializer] = "ones",
+        beta_initializer: Union[str, Type[initializers.Initializer], initializers.Initializer] = "zero",
         use_beta: Optional[bool] = True,
-        alpha_regularizer: Optional[Union[str, Type[regularizers.Regularizer]]] = None,
-        alpha_constraint: Optional[Union[str, Type[constraints.Constraint]]] = None,
-        beta_regularizer: Optional[Union[str, Type[regularizers.Regularizer]]] = None,
-        beta_constraint: Optional[Union[str, Type[constraints.Constraint]]] = None,
+        alpha_regularizer: Optional[Union[str, Type[regularizers.Regularizer], regularizers.Regularizer]] = None,
+        alpha_constraint: Optional[Union[str, Type[constraints.Constraint], constraints.Constraint]] = None,
+        beta_regularizer: Optional[Union[str, Type[regularizers.Regularizer], regularizers.Regularizer]] = None,
+        beta_constraint: Optional[Union[str, Type[constraints.Constraint], constraints.Constraint]] = None,
         **kwargs,
     ):
         super().__init__(**kwargs)
@@ -178,7 +178,7 @@ def PatchEmbed(
     embed_dims: int = 768,
     flatten: Optional[bool] = True,
     name: str = "patch_embedding",
-) -> Type[tf.Tensor]:
+) -> tf.Tensor:
     """Patch Embedding layer.
 
     Args:
