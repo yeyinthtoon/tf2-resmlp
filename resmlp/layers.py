@@ -152,7 +152,7 @@ class PerSampleDropPath(layers.Layer):
             batch_size = tf.shape(inputs)[0]
             survival_prob = 1 - self.rate
             random_tensor = survival_prob
-            random_tensor = tf.cast(random_tensor, self.dtype)
+            random_tensor = tf.cast(random_tensor, inputs.dtype)
             rank = inputs.shape.rank
             shape = (batch_size,) + (1,) * (rank - 1)
             random_tensor += tf.random.uniform(shape, dtype=inputs.dtype, seed=self.seed)
